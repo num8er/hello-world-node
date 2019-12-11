@@ -29,6 +29,7 @@ docker push gcr.io/${PROJECT_ID}/hello-world:latest
 Apply deployment, create lb, create ingress:
 ```
 cd k8s
+sed "s/__PROJECT_ID_HERE__/$PROJECT_ID/g" ./deployment.yaml.template > ./deployment.yaml
 kubectl apply -f deployment.yaml
 kubectl apply -f np.yaml
 kubectl apply -f ingress.yaml
